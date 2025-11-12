@@ -12,7 +12,7 @@
   {{- $dict := dict "config" "assets/css/one-page-alt/postcss.config.js" }}
   {{- with resources.Get "css/one-page-alt/styles.css" }}
     {{- $styles := . | postCSS $dict }}
-    {{- if not hugo.IsDevelopment }}
+    {{- if hugo.IsDevelopment }}
       <link rel="stylesheet" href="{{ $styles.RelPermalink }}">
     {{- else }}
       {{- with $styles | minify | fingerprint }}
@@ -24,7 +24,7 @@
   
   {{- with resources.Get "css/fontawesome.css" }}
   {{- $fa := . | toCSS (dict "targetPath" "css/one-page-alt/fontawesome.css") | postCSS $dict }}
-    {{- if not hugo.IsDevelopment }}
+    {{- if hugo.IsDevelopment }}
       <link rel="stylesheet" href="{{ $fa.RelPermalink }}">
     {{- else }}
       {{- with $fa | minify | fingerprint }}
