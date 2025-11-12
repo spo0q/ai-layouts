@@ -1,3 +1,9 @@
+{{- /* Load home page styles */ -}}
+{{- with resources.Get "css/home/styles.css" }}
+  {{- $styles := . | postCSS (dict "config" "postcss.config.js") | minify | fingerprint }}
+  <link rel="stylesheet" href="{{ $styles.RelPermalink }}" integrity="{{ $styles.Data.Integrity }}" crossorigin>
+{{- end }}
+
 {{- define "header" }}
   <h1>{{ .Site.Title }}</h1>
   <nav class="_nav-menu">
