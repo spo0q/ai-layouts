@@ -8,6 +8,7 @@
 
   {{- partial "head/fonts/preload/inter.html" . -}}
   {{- partial "head/fonts/preload/fontawesome.html" . -}}
+  {{- partial "head/css.html" . -}}
   
   {{- $dict := dict "config" "postcss.config.js" }}
   {{- with resources.Get "css/one-page/styles.css" }}
@@ -23,7 +24,6 @@
     {{- end }}
   {{- end }}
 
-  {{- /* FontAwesome is loaded in head partial globally (processed and fingerprinted). */ -}}
   <link rel="icon" type="image/png" href="{{ "favicon.ico" | absURL }}">
   <meta name="robots" content="noindex">
 </head>

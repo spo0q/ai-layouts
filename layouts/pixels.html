@@ -7,10 +7,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   {{- partial "head/fonts/preload/start2p.html" . -}}
-
-  {{- /* if hugo.IsDevelopment */}}
-    {{- partial "head/fonts/preload/fontawesome.html" . -}}
-  {{- /* end */}}
+  {{- partial "head/fonts/preload/fontawesome.html" . -}}
+  {{- partial "head/css.html" . -}}
 
   {{- $dict := dict "config" "postcss.config.js" }}
     {{- with resources.Get "css/one-page-pixels/styles.css" }}
