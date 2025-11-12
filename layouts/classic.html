@@ -24,8 +24,7 @@
   {{- end }}
 
   {{- with resources.Get "css/fontawesome.css" }}
-    {{ with resources.ExecuteAsTemplate "css/fontawesome.css" $ . }}
-    {{- $fa := . | toCSS (dict "targetPath" "css/one-page/fontawesome.css") | postCSS $dict }}
+    {{- $fa := . | postCSS $dict }}
       {{- if hugo.IsDevelopment }}
         <link rel="stylesheet" href="{{ $fa.RelPermalink }}">
       {{- else }}
@@ -33,7 +32,6 @@
           <link rel="stylesheet" href="{{ .Permalink | absURL }}">
         {{- end }}
       {{- end }}
-    {{- end }}
   {{- end }}
   <link rel="icon" type="image/png" href="{{ "favicon.ico" | absURL }}">
   <meta name="robots" content="noindex">

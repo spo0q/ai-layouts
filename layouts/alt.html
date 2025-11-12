@@ -24,14 +24,12 @@
   {{- end }}
   
   {{- with resources.Get "css/fontawesome.css" }}
-    {{ with resources.ExecuteAsTemplate "css/fontawesome.css" $ . }}
-      {{- $fa := . | toCSS (dict "targetPath" "css/one-page-alt/fontawesome.css") | postCSS $dict }}
-      {{- if hugo.IsDevelopment }}
-        <link rel="stylesheet" href="{{ $fa.RelPermalink }}">
-      {{- else }}
-        {{- with $fa | minify }}
-          <link rel="stylesheet" href="{{ .Permalink  | absURL }}">
-        {{- end }}
+    {{- $fa := . | postCSS $dict }}
+    {{- if hugo.IsDevelopment }}
+      <link rel="stylesheet" href="{{ $fa.RelPermalink }}">
+    {{- else }}
+      {{- with $fa | minify }}
+        <link rel="stylesheet" href="{{ .Permalink  | absURL }}">
       {{- end }}
     {{- end }}
   {{- end }}

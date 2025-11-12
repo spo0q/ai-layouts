@@ -3,10 +3,17 @@
   "version": "1.0.0",
   "type": "module",
   "scripts": {
-    "help": "postcss --help"
+    "help": "postcss --help",
+    "postcss": "postcss assets/css/main.css -o assets/css/compiled/main.css",
+    "dev": "PATH=$(pwd)/node_modules/.bin:$PATH && hugo server -D",
+    "build": "PATH=$(pwd)/node_modules/.bin:$PATH && hugo --minify",
+    "ci-build": "npm ci && PATH=$(pwd)/node_modules/.bin:$PATH && hugo --minify"
   },
   "devDependencies": {
-    "@fullhuman/postcss-purgecss": "^7.0.2"
+    "@fullhuman/postcss-purgecss": "^7.0.2",
+    "autoprefixer": "^10.4.14",
+    "cssnano": "^6.0.1",
+    "postcss-import": "^15.0.0"
   },
   "dependencies": {
     "postcss-cli": "^11.0.1"
