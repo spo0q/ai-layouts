@@ -60,6 +60,22 @@
     });
   }
 
+  // Hook the persistent toggle pill
+  const togglePill = document.getElementById('dbb-toggle');
+  if (togglePill) {
+    togglePill.addEventListener('click', (e) => {
+      e.preventDefault();
+      const currentlyHidden = getCookie('debug_bar') === '0';
+      if (currentlyHidden) {
+        setCookie('debug_bar', '1');
+        showBar();
+      } else {
+        setCookie('debug_bar', '0');
+        hideBar();
+      }
+    });
+  }
+
   // Close other details when one opens (makes the debug UI neater)
   const detailsList = document.querySelectorAll('details');
   function handleDetailToggle(event) {
