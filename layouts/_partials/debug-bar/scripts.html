@@ -1,20 +1,73 @@
 <script>
-const debugBar = document.querySelector(".dbb");
-const btnClose = document.getElementById("dbb-close");
-btnClose.addEventListener("click", () => { debugBar.style.opacity = 0; });
-
-// Close other details when details is clicked
-// @see https://stackoverflow.com/a/36994802
-const detailsList = document.querySelectorAll("details");
-
-function handleDetailToggle(event) {
-  if (!event.target.open) return;
-  for (let details of detailsList) {
-    details.open = details === event.target;
+(() => {
+  // Helpers for cookies and URL params
+  function getCookie(name) {
+    const v = document.cookie.match('(?:^|;)\\s*' + name + '=([^;]*)');
+    return v ? decodeURIComponent(v[1]) : null;
   }
-}
+  function setCookie(name, value, days = 365) {
+    const expires = new Date(Date.now() + days * 864e5).toUTCString();
+    document.cookie = name + '=' + encodeURIComponent(value) + '; expires=' + expires + '; path=/';
+  }
+  function deleteCookie(name) {
+    document.cookie = name + '=; Max-Age=0; path=/';
+  }
+  function getUrlParam(name) {
+    try {
+      return new URLSearchParams(window.location.search).get(name);
+    } catch (e) {
+      return null;
+    }
+  }
 
-for (let details of detailsList) {
-  details.addEventListener("toggle", handleDetailToggle);
-}
+  const debugBar = document.querySelector('.dbb');
+  if (!debugBar) return;
+
+  // Decide initial visibility: URL param overrides cookie, which overrides server-side default
+  const urlDebug = getUrlParam('debug'); // expected '1' or '0'
+  const cookieDebug = getCookie('debug_bar'); // '1' or '0' or null
+
+  function showBar() {
+    debugBar.style.display = '';
+    debugBar.style.opacity = 1;
+  }
+  function hideBar() {
+    debugBar.style.opacity = 0;
+    // keep it removed from layout after transition
+    setTimeout(() => { debugBar.style.display = 'none'; }, 300);
+  }
+
+  if (urlDebug === '1') {
+    setCookie('debug_bar', '1');
+    showBar();
+  } else if (urlDebug === '0') {
+    setCookie('debug_bar', '0');
+    hideBar();
+  } else if (cookieDebug === '0') {
+    hideBar();
+  } else {
+    // default: leave visible (server-side param controls initial include)
+    showBar();
+  }
+
+  // Hook the close button: set cookie to hide for future visits
+  const btnClose = document.getElementById('dbb-close');
+  if (btnClose) {
+    btnClose.addEventListener('click', (e) => {
+      e.preventDefault();
+      setCookie('debug_bar', '0');
+      hideBar();
+    });
+  }
+
+  // Close other details when one opens (makes the debug UI neater)
+  const detailsList = document.querySelectorAll('details');
+  function handleDetailToggle(event) {
+    if (!event.target.open) return;
+    for (let details of detailsList) {
+      details.open = details === event.target;
+    }
+  }
+  for (let details of detailsList) details.addEventListener('toggle', handleDetailToggle);
+})();
 </script>
