@@ -14,8 +14,8 @@
     {{- if hugo.IsDevelopment }}
       <link rel="stylesheet" href="{{ $styles.RelPermalink }}">
     {{- else }}
-      {{- with . | minify | fingerprint }}
-        <link rel="stylesheet" href="{{ $styles.Permalink | absURL }}" integrity="{{ .Data.Integrity }}" crossorigin="anonymous">
+      {{- with . | minify }}
+        <link rel="stylesheet" href="{{ $styles.Permalink | absURL }}" crossorigin="anonymous">
       {{- end }}
     {{- end }}
   {{- end }}
