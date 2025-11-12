@@ -11,24 +11,27 @@
   
   {{- $dict := dict "config" "assets/css/one-page-alt/postcss.config.js" }}
   {{- with resources.Get "css/one-page-alt/styles.css" }}
-    {{- $styles := . | postCSS $dict }}
-    {{- if hugo.IsDevelopment }}
-      <link rel="stylesheet" href="{{ $styles.RelPermalink }}">
-    {{- else }}
-      {{- with $styles | minify }}
-        <link rel="stylesheet" href="{{ .Permalink | absURL }}" crossorigin="anonymous">
+    {{ with resources.ExecuteAsTemplate "css/one-page-alt/styles.css" $ . }}
+      {{- $styles := . | postCSS $dict }}
+      {{- if hugo.IsDevelopment }}
+        <link rel="stylesheet" href="{{ $styles.RelPermalink }}">
+      {{- else }}
+        {{- with $styles | minify }}
+          <link rel="stylesheet" href="{{ .Permalink | absURL }}" crossorigin="anonymous">
+        {{- end }}
       {{- end }}
     {{- end }}
   {{- end }}
-
   
   {{- with resources.Get "css/fontawesome.css" }}
-  {{- $fa := . | toCSS (dict "targetPath" "css/one-page-alt/fontawesome.css") | postCSS $dict }}
-    {{- if hugo.IsDevelopment }}
-      <link rel="stylesheet" href="{{ $fa.RelPermalink }}">
-    {{- else }}
-      {{- with $fa | minify }}
-        <link rel="stylesheet" href="{{ .Permalink  | absURL }}" crossorigin="anonymous">
+    {{ with resources.ExecuteAsTemplate "css/fontawesome.css" $ . }}
+      {{- $fa := . | toCSS (dict "targetPath" "css/one-page-alt/fontawesome.css") | postCSS $dict }}
+      {{- if hugo.IsDevelopment }}
+        <link rel="stylesheet" href="{{ $fa.RelPermalink }}">
+      {{- else }}
+        {{- with $fa | minify }}
+          <link rel="stylesheet" href="{{ .Permalink  | absURL }}" crossorigin="anonymous">
+        {{- end }}
       {{- end }}
     {{- end }}
   {{- end }}

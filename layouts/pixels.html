@@ -9,13 +9,15 @@
   {{- partial "head/fonts/preload/start2p.html" . -}}
 
   {{- $dict := dict "config" "assets/css/one-page-pixels/postcss.config.js" }}
-  {{- with resources.Get "css/one-page-pixels/styles.css" }}
-    {{- $styles := . | postCSS $dict }}
-    {{- if hugo.IsDevelopment }}
-      <link rel="stylesheet" href="{{ $styles.RelPermalink }}">
-    {{- else }}
-      {{- with . | minify }}
-        <link rel="stylesheet" href="{{ $styles.Permalink | absURL }}" crossorigin="anonymous">
+    {{- with resources.Get "css/one-page-pixels/styles.css" }}
+      {{ with resources.ExecuteAsTemplate "css/one-page-pixels/styles.css" $ . }}
+      {{- $styles := . | postCSS $dict }}
+      {{- if hugo.IsDevelopment }}
+        <link rel="stylesheet" href="{{ $styles.RelPermalink }}">
+      {{- else }}
+        {{- with . | minify }}
+          <link rel="stylesheet" href="{{ $styles.Permalink | absURL }}" crossorigin="anonymous">
+        {{- end }}
       {{- end }}
     {{- end }}
   {{- end }}

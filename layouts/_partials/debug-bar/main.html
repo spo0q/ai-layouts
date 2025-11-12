@@ -9,10 +9,11 @@
 {{- end }}
 
 {{- with resources.Get "css/fontawesome.css" }}
-  {{- $fa := . | toCSS (dict "targetPath" "css/debug-bar/fontawesome.css") | postCSS $dict }}
-	<link rel="stylesheet" href="{{ $fa.RelPermalink }}">
+    {{ with resources.ExecuteAsTemplate "css/fontawesome.css" $ . }}
+    {{- $fa := . | toCSS (dict "targetPath" "css/debug-bar/fontawesome.css") | postCSS $dict }}
+  	<link rel="stylesheet" href="{{ $fa.RelPermalink }}">
+  {{- end }}
 {{- end }}
-
 <div class="dbb">
   {{- partial "debug-bar/home-link.html" . -}}
 
