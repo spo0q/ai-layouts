@@ -1,0 +1,15 @@
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.parser]
+      autoHeadingIDType = 'github-ascii'
+
+  [markup.tableOfContents]
+    endLevel = 2
+    ordered = false
+    startLevel = 2
+
+[imaging]
+  anchor = "center"
+
+[outputs]
+  home = ["HTML"]

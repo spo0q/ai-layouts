@@ -1,0 +1,8 @@
+baseURL = 'https://spo0q.github.io/ai-layouts/'
+languageCode = 'en-us'
+title = 'MY LAYOUTS'
+
+disableKinds = ["taxonomy", "RSS", "sitemap"]
+enableRobotsTXT = true
+enableEmoji = true
+canonifyURLs = true

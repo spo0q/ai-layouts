@@ -1,0 +1,14 @@
+{
+  "name": "Layouts",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "help": "postcss --help"
+  },
+  "devDependencies": {
+    "@fullhuman/postcss-purgecss": "^7.0.2"
+  },
+  "dependencies": {
+    "postcss-cli": "^11.0.1"
+  }
+}

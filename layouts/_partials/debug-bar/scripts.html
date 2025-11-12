@@ -1,0 +1,20 @@
+<script>
+const debugBar = document.querySelector(".dbb");
+const btnClose = document.getElementById("dbb-close");
+btnClose.addEventListener("click", () => { debugBar.style.opacity = 0; });
+
+// Close other details when details is clicked
+// @see https://stackoverflow.com/a/36994802
+const detailsList = document.querySelectorAll("details");
+
+function handleDetailToggle(event) {
+  if (!event.target.open) return;
+  for (let details of detailsList) {
+    details.open = details === event.target;
+  }
+}
+
+for (let details of detailsList) {
+  details.addEventListener("toggle", handleDetailToggle);
+}
+</script>
