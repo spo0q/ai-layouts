@@ -8,6 +8,10 @@
 
   {{- partial "head/fonts/preload/start2p.html" . -}}
 
+  {{- /* if hugo.IsDevelopment */}}
+    {{- partial "head/fonts/preload/fontawesome.html" . -}}
+  {{- /* end */}}
+
   {{- $dict := dict "config" "assets/css/one-page-pixels/postcss.config.js" }}
     {{- with resources.Get "css/one-page-pixels/styles.css" }}
       {{ with resources.ExecuteAsTemplate "css/one-page-pixels/styles.css" $ . }}
@@ -16,11 +20,12 @@
         <link rel="stylesheet" href="{{ $styles.RelPermalink }}">
       {{- else }}
         {{- with . | minify }}
-          <link rel="stylesheet" href="{{ $styles.Permalink | absURL }}" crossorigin="anonymous">
+          <link rel="stylesheet" href="{{ $styles.Permalink | absURL }}">
         {{- end }}
       {{- end }}
     {{- end }}
   {{- end }}
+  <link rel="icon" type="image/png" href="{{ "favicon.ico" | absURL }}">
   <meta name="robots" content="noindex">
 </head>
 
@@ -199,25 +204,10 @@
         this.innerHTML = "Noted!";
       }
     );
-
-    /*const toggleBtn = document.getElementById('nav-toggle');
-    const dropdown = document.getElementById('nav-dropdown');
-
-    toggleBtn.addEventListener('click', () => {
-      toggleBtn.classList.toggle('active');
-      dropdown.classList.toggle('show');
-    });
-
-    document.addEventListener('click', (e) => {
-      if (!toggleBtn.contains(e.target) && !dropdown.contains(e.target)) {
-        dropdown.classList.remove('show');
-        toggleBtn.classList.remove('active');
-      }
-    });*/
   </script>
   
-  {{- if hugo.IsDevelopment }}
+  {{- /* if hugo.IsDevelopment */}}
     {{- partial "debug-bar/main.html" . -}}
-  {{- end -}}
+  {{- /* end */ -}}
 </body>
 </html>

@@ -17,7 +17,7 @@
         <link rel="stylesheet" href="{{ $styles.RelPermalink }}">
       {{- else }}
         {{- with $styles | minify }}
-          <link rel="stylesheet" href="{{ $styles.Permalink | absURL }}" crossorigin="anonymous">
+          <link rel="stylesheet" href="{{ $styles.Permalink | absURL }}">
         {{- end }}
       {{- end }}
     {{- end }}
@@ -30,11 +30,12 @@
         <link rel="stylesheet" href="{{ $fa.RelPermalink }}">
       {{- else }}
         {{- with $fa | minify }}
-          <link rel="stylesheet" href="{{ .Permalink | absURL }}" crossorigin="anonymous">
+          <link rel="stylesheet" href="{{ .Permalink | absURL }}">
         {{- end }}
       {{- end }}
     {{- end }}
   {{- end }}
+  <link rel="icon" type="image/png" href="{{ "favicon.ico" | absURL }}">
   <meta name="robots" content="noindex">
 </head>
 
@@ -54,7 +55,7 @@
     </div>
   </header>
 
-  <nav class="navbar">
+  <nav class="navbar" id="nav-menu">
     <details class="navdetails" open>
       <summary>Menu</summary>
       <div class="navlist">
@@ -72,27 +73,27 @@
     <section id="services" class="section services">
       <h2 class="section-heading title-box">✨ Revolutionary</h2>
       <div class="service-box">
-          <i class="fa fa-4x fa-magic"></i>
+          <i class="fa fa-3x fa-magic"></i>
           <h3>AI Did Everything</h3>
           <p class="text-muted">Why understand your own code when it can hallucinate it for you? Just keep hitting "regenerate" until something works!</p>
       </div>
       <div class="service-box">
-          <i class="fa fa-4x fa-copy"></i>
+          <i class="fa fa-3x fa-copy"></i>
           <h3>Copy-Paste Excellence</h3>
           <p class="text-muted">We use the revolutionary technique of copying code we don't understand and hoping it works. Shipped in record time!</p>
       </div>
       <div class="service-box">
-          <i class="fa fa-4x fa-laptop"></i>
+          <i class="fa fa-3x fa-laptop"></i>
           <h3>Works On My Machine</h3>
           <p class="text-muted">Tested extensively on localhost once. Users reporting bugs? Just ask the AI to fix it without understanding the root cause!</p>
       </div>
       <div class="service-box">
-          <i class="fa fa-4x fa-bolt"></i>
+          <i class="fa fa-3x fa-bolt"></i>
           <h3>Zero Planning</h3>
           <p class="text-muted">Architecture? Tests? Documentation? Nah bro, we just vibe with it. The AI knows best, probably.</p>
       </div>
       <div class="service-box">
-          <i class="fa fa-4x fa-bolt"></i>
+          <i class="fa fa-3x fa-bolt"></i>
           <h3>Zero Planning</h3>
           <p class="text-muted">Architecture? Tests? Documentation? Nah bro, we just vibe with it. The AI knows best, probably.</p>
       </div>
@@ -271,11 +272,11 @@
       <h2 class="section-heading">📱 Hit Me Up</h2>
       <p>Wtf is this text? Seriously, Just Prompt It And Ship It! Highly recommend to anyone looking for something!</p>
       <p>
-          <i class="fa fa-phone fa-2x"></i>
+          <i class="fa fa-phone"></i>
           <span>+1-555-PROMPT-ME</span>
       </p>
       <p>
-          <i class="fa fa-envelope-o fa-2x"></i>
+          <i class="fa fa-envelope-circle-check"></i>
           <span><a href="mailto:novibe@only.dev">novibe@only.dev</a></span>
       </p>
     </section>
@@ -294,26 +295,10 @@
     const banner = document.getElementById('cookieBanner');
     document.querySelector('.disappear').addEventListener('click', function() { banner.style.display = "none"; 
     });
-    /*
-    const toggleBtn = document.getElementById('nav-toggle');
-    const dropdown = document.getElementById('nav-dropdown');
-
-    toggleBtn.addEventListener('click', () => {
-      toggleBtn.classList.toggle('active');
-      dropdown.classList.toggle('show');
-    });
-
-    document.addEventListener('click', (e) => {
-      if (!toggleBtn.contains(e.target) && !dropdown.contains(e.target)) {
-        dropdown.classList.remove('show');
-        toggleBtn.classList.remove('active');
-      }
-    });
-    */
   </script>
   
-  {{- if hugo.IsDevelopment }}
+  {{- /* if hugo.IsDevelopment */}}
     {{- partial "debug-bar/main.html" . -}}
-  {{- end -}}
+  {{- /* end */ -}}
 </body>
 </html>

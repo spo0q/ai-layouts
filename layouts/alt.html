@@ -17,7 +17,7 @@
         <link rel="stylesheet" href="{{ $styles.RelPermalink }}">
       {{- else }}
         {{- with $styles | minify }}
-          <link rel="stylesheet" href="{{ .Permalink | absURL }}" crossorigin="anonymous">
+          <link rel="stylesheet" href="{{ .Permalink | absURL }}">
         {{- end }}
       {{- end }}
     {{- end }}
@@ -30,11 +30,12 @@
         <link rel="stylesheet" href="{{ $fa.RelPermalink }}">
       {{- else }}
         {{- with $fa | minify }}
-          <link rel="stylesheet" href="{{ .Permalink  | absURL }}" crossorigin="anonymous">
+          <link rel="stylesheet" href="{{ .Permalink  | absURL }}">
         {{- end }}
       {{- end }}
     {{- end }}
   {{- end }}
+  <link rel="icon" type="image/png" href="{{ "favicon.ico" | absURL }}">
   <meta name="robots" content="noindex">
 </head>
 
@@ -64,27 +65,27 @@
       <section id="services" class="section services">
         <h2 class="section-heading title-box services-title">✨ Revolutionary</h2>
         <div class="service-box">
-            <i class="fa fa-4x fa-magic"></i>
+            <i class="fa fa-3x fa-magic"></i>
             <h3 class="service-box-title">AI Did Everything</h3>
             <p class="service-box-text">Why understand your own code when it can hallucinate it for you? Just keep clicking until something works!</p>
         </div>
         <div class="service-box">
-            <i class="fa fa-4x fa-copy"></i>
+            <i class="fa fa-3x fa-copy"></i>
             <h3 class="service-box-title">Copy-Paste Excellence</h3>
             <p class="service-box-text">We use the revolutionary technique of copying code we don't understand and hoping it works. Shipped in record time!</p>
         </div>
         <div class="service-box">
-            <i class="fa fa-4x fa-laptop"></i>
+            <i class="fa fa-3x fa-laptop"></i>
             <h3 class="service-box-title">Works On My Machine</h3>
             <p class="service-box-text">Tested extensively on localhost once. Users reporting bugs? Just ask the AI to fix it without understanding the root cause!</p>
         </div>
         <div class="service-box">
-            <i class="fa fa-4x fa-bolt"></i>
+            <i class="fa fa-3x fa-bolt"></i>
             <h3 class="service-box-title">Zero Planning</h3>
             <p class="service-box-text">Architecture? Nah bro, we just vibe with it. Keep clicking until something works.</p>
         </div>
         <div class="service-box">
-            <i class="fa fa-4x fa-bolt"></i>
+            <i class="fa fa-3x fa-bolt"></i>
             <h3 class="service-box-title">Zero Planning</h3>
             <p class="service-box-text">Same thing, but better the 2nd time. Just ask the AI.</p>
         </div>
@@ -332,8 +333,8 @@
     </footer>
   </div>
 
-  {{- if hugo.IsDevelopment }}
+  {{- /* if hugo.IsDevelopment */}}
     {{- partial "debug-bar/main.html" . -}}
-  {{- end -}}
+  {{- /* end */ -}}
 </body>
 </html>

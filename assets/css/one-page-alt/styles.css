@@ -172,6 +172,7 @@ figure, img {
 
 body {
   font-family: 'Inter', system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  font-size: 1rem;
   position: relative;
   margin: 0;
   padding: 0;
@@ -353,11 +354,6 @@ figure {
   background-color: var(--color-primary);
 }
 
-i.fa {
-  margin-inline: 5px;
-  font-size: 1.25rem;
-}
-
 /* === About === */
 .about h2,
 .about p {
@@ -391,6 +387,10 @@ i.fa {
 .services h2 {
   color: var(--color-white);
   display: flex;
+}
+
+.services i {
+  margin-bottom: 1.5rem;
 }
 
 .service-box {
@@ -637,7 +637,12 @@ i.fa {
   gap: .75rem;
 }
 
-.contact-infos.alt i {
+.contact-infos .fa {
+  margin-inline: 5px;
+  font-size: 1.25rem;
+}
+
+.contact-infos.alt .fa {
   min-width: 21px;
   font-size: 1.2rem;
 }
