@@ -12,7 +12,7 @@
     {{- partial "head/fonts/preload/fontawesome.html" . -}}
   {{- /* end */}}
 
-  {{- $dict := dict "config" "assets/css/one-page-pixels/postcss.config.js" }}
+  {{- $dict := dict "config" "postcss.config.js" }}
     {{- with resources.Get "css/one-page-pixels/styles.css" }}
       {{ with resources.ExecuteAsTemplate "css/one-page-pixels/styles.css" $ . }}
       {{- $styles := . | postCSS $dict }}
