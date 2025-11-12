@@ -5,7 +5,7 @@ updates:
   schedule:
     interval: daily
     time: '11:00'
-    timezone: Germany
+    timezone: Europe/Berlin
   labels:
   - "dependencies"
   allow:
@@ -18,7 +18,7 @@ updates:
   schedule:
     interval: "daily"
     time: '11:00'
-    timezone: Germany
+    timezone: Europe/Berlin
   labels:
   - "CI/CD"
   commit-message:

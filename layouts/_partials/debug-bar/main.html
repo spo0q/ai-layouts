@@ -1,18 +1,13 @@
-{{- $dict := dict "config" "assets/css/debug-bar/postcss.config.js" }}
+{{- /* Load debug-bar styles (always included for demo sites) */ -}}
+{{- $dict := dict "config" "postcss.config.js" }}
 {{- with resources.Get "css/debug-bar/styles.css" }}
-    {{- $styles := . | postCSS $dict }}
-	<link rel="stylesheet" href="{{ $styles.RelPermalink }}">
+  {{- $styles := . | postCSS $dict | minify | fingerprint }}
+  <link rel="stylesheet" href="{{ $styles.RelPermalink }}" integrity="{{ $styles.Data.Integrity }}" crossorigin>
 {{- end }}
 
 {{- with resources.Get "css/debug-bar/debugprint.css" }}
-  <link rel="stylesheet" href="{{ .RelPermalink }}">
-{{- end }}
-
-{{- with resources.Get "css/fontawesome.css" }}
-    {{ with resources.ExecuteAsTemplate "css/fontawesome.css" $ . }}
-    {{- $fa := . | toCSS (dict "targetPath" "css/debug-bar/fontawesome.css") | postCSS $dict }}
-  	<link rel="stylesheet" href="{{ $fa.RelPermalink }}">
-  {{- end }}
+  {{- $dp := . | minify | fingerprint }}
+  <link rel="stylesheet" href="{{ $dp.RelPermalink }}" integrity="{{ $dp.Data.Integrity }}" crossorigin>
 {{- end }}
 <div class="dbb">
   {{- partial "debug-bar/home-link.html" . -}}
@@ -27,4 +22,8 @@
   {{- partial "debug-bar/btn-close.html" . -}}
 </div>
 
+<!-- Persistent corner toggle (small pill) -->
+<button id="dbb-toggle" class="dbb-toggle-pill" aria-label="Toggle debug bar" title="Toggle debug bar">DB</button>
+
+{{- /* Load debug-bar scripts (always included for demo sites) */ -}}
 {{- partial "debug-bar/scripts.html" . -}}

@@ -15,6 +15,6 @@ hugo server
 
 ## Warning
 
-This repository may not follow good practices.
+This repository may not follow good practices, and is aimed to use AI.
 
 For example, the debug bar should not be visible in production.
