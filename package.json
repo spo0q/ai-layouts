@@ -2,11 +2,6 @@
   "name": "Layouts",
   "version": "1.0.0",
   "type": "module",
-  "scripts": {
-    "dev": "PATH=$(pwd)/node_modules/.bin:$PATH && hugo server -D",
-    "build": "PATH=$(pwd)/node_modules/.bin:$PATH && hugo --minify",
-    "ci-build": "npm ci && PATH=$(pwd)/node_modules/.bin:$PATH && hugo --minify"
-  },
   "devDependencies": {
     "@fullhuman/postcss-purgecss": "^7.0.2",
     "autoprefixer": "^10.4.14",
