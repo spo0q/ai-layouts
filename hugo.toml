@@ -6,3 +6,7 @@ disableKinds = ["taxonomy", "RSS", "sitemap"]
 enableRobotsTXT = true
 enableEmoji = true
 canonifyURLs = true
+
+[params]
+showDebugBar = true
+custom_param = "lol"

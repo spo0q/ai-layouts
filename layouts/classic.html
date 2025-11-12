@@ -8,8 +8,9 @@
 
   {{- partial "head/fonts/preload/inter.html" . -}}
   {{- partial "head/fonts/preload/fontawesome.html" . -}}
+  {{- partial "head/css.html" . -}}
   
-  {{- $dict := dict "config" "assets/css/one-page/postcss.config.js" }}
+  {{- $dict := dict "config" "postcss.config.js" }}
   {{- with resources.Get "css/one-page/styles.css" }}
     {{ with resources.ExecuteAsTemplate "css/one-page/styles.css" $ . }}
       {{- $styles := . | postCSS $dict }}
@@ -23,16 +24,6 @@
     {{- end }}
   {{- end }}
 
-  {{- with resources.Get "css/fontawesome.css" }}
-    {{- $fa := . | postCSS $dict }}
-      {{- if hugo.IsDevelopment }}
-        <link rel="stylesheet" href="{{ $fa.RelPermalink }}">
-      {{- else }}
-        {{- with $fa | minify }}
-          <link rel="stylesheet" href="{{ .Permalink | absURL }}">
-        {{- end }}
-      {{- end }}
-  {{- end }}
   <link rel="icon" type="image/png" href="{{ "favicon.ico" | absURL }}">
   <meta name="robots" content="noindex">
 </head>
@@ -295,8 +286,6 @@
     });
   </script>
   
-  {{- /* if hugo.IsDevelopment */}}
-    {{- partial "debug-bar/main.html" . -}}
-  {{- /* end */ -}}
+  {{- partial "debug-bar/main.html" . -}}
 </body>
 </html>

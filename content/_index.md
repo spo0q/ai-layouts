@@ -17,11 +17,13 @@ Everything else depends on postCSS config.
 
 ## PostCSS
 
-I use built-in postCSS helpers and `hugo-debugprint`, and each theme has its own postCSS configuration:
+I use a single, central PostCSS configuration (`postcss.config.js`) that Hugo Pipes uses when processing each stylesheet in `assets/css/`.
+
+Example stylesheet paths:
 
 ```
-/assets/one-page-alt/css/styles.css
-/assets/one-page-alt/postcss.config.js
+assets/css/one-page/styles.css
+assets/css/debug-bar/styles.css
 ```
 
 ## Debug bar

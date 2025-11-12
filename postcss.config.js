@@ -7,7 +7,10 @@ const purgeOptions = {
   content: ['./layouts/**/*.html', './content/**/*.{md,html}'],
   defaultExtractor: content => (content.match(/[A-Za-z0-9-_:/]+/g) || []),
   safelist: [
-    /(^|\s)fa-/,        // Font Awesome classes
+    // Font Awesome classes were previously safelisted which prevented
+    // PurgeCSS from removing unused rules from third-party CSS and
+    // caused the full fontawesome stylesheet to be emitted on every page.
+    // Remove the `fa-` safelist so PurgeCSS can strip unused FA selectors.
     /(^|\s)dbb-/,       // debug-bar classes
     'dev', 'prod'
   ]

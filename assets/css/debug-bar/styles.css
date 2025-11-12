@@ -74,6 +74,21 @@ i.dbb-fa {
   text-shadow: none !important;
   cursor: pointer;
 }
+.dbb-toggle-pill {
+  position: fixed;
+  right: 12px;
+  bottom: 12px;
+  z-index: 99999;
+  border-radius: 999px;
+  padding: 6px 10px;
+  background: #111;
+  color: #fff;
+  border: 0;
+  opacity: 0.8;
+  cursor: pointer;
+  font-size: 12px;
+}
+.dbb-toggle-pill:hover { opacity: 1; }
 .dbb-menu-toggle {
   margin: 0 !important;
   padding: 0 !important;
