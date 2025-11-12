@@ -6,4 +6,12 @@
 	<link rel="stylesheet" href="{{ $fa.RelPermalink }}" integrity="{{ $fa.Data.Integrity }}" crossorigin>
 {{- end -}}
 
+{{- /* Load home page styles for the home template */ -}}
+{{- if .IsHome -}}
+	{{- with resources.Get "css/home/styles.css" -}}
+		{{- $home := . | postCSS (dict "config" "postcss.config.js") | minify | fingerprint -}}
+		<link rel="stylesheet" href="{{ $home.RelPermalink }}" integrity="{{ $home.Data.Integrity }}" crossorigin>
+	{{- end -}}
+{{- end -}}
+
 {{- /* NOTE: theme/page CSS should be included by each layout/template to avoid cross-theme leakage. */ -}}
