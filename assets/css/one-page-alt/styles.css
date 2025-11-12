@@ -389,7 +389,8 @@ figure {
   display: flex;
 }
 
-.services i {
+.services .fa,
+.services .fa-brands {
   margin-bottom: 1.5rem;
 }
 
@@ -496,7 +497,9 @@ figure {
   align-items: center;
 }
 
-.section-q i.fa {
+.section-q i.fa,
+.section-q i.fab,
+.section-q i.fa-brands {
   font-size: 12rem;
   text-shadow: 2px 4px 3px var(--bg-fancy);
 }
@@ -637,12 +640,14 @@ figure {
   gap: .75rem;
 }
 
-.contact-infos .fa {
+.contact-infos .fa,
+.contact-infos .fa-brands {
   margin-inline: 5px;
   font-size: 1.25rem;
 }
 
-.contact-infos.alt .fa {
+.contact-infos.alt .fa,
+.contact-infos.alt .fa-brands {
   min-width: 21px;
   font-size: 1.2rem;
 }
@@ -662,7 +667,8 @@ figure {
   border-block-start: var(--border);
 }
 
-.site-footer .fa {
+.site-footer .fa,
+.site-footer .fa-brands {
   font-size: 1.5rem;
 }
 
