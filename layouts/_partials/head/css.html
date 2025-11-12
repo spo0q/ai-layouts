@@ -1,13 +1,9 @@
 {{- /* Consolidate all CSS under assets/css into a single processed file.
 		 This concatenates the assets, runs PostCSS (root config), minifies and fingerprints. */ -}}
-{{- /* Process FontAwesome separately (no purge) and keep it non-minified ordering if needed */ -}}
+{{- /* Process FontAwesome with PurgeCSS enabled (safelist configured in root postcss.config.js) */ -}}
 {{- with resources.Get "css/fontawesome.css" -}}
-	{{- $fa := . | postCSS (dict "config" "postcss.nopurge.config.js") | minify | fingerprint -}}
+	{{- $fa := . | postCSS (dict "config" "postcss.config.js") | minify | fingerprint -}}
 	<link rel="stylesheet" href="{{ $fa.RelPermalink }}" integrity="{{ $fa.Data.Integrity }}" crossorigin>
 {{- end -}}
 
-{{- /* Process main bundle (imports everything else) with PurgeCSS enabled */ -}}
-{{- with resources.Get "css/main.css" -}}
-	{{- $main := . | postCSS (dict "config" "postcss.config.js") | minify | fingerprint -}}
-	<link rel="stylesheet" href="{{ $main.RelPermalink }}" integrity="{{ $main.Data.Integrity }}" crossorigin>
-{{- end -}}
+{{- /* NOTE: theme/page CSS should be included by each layout/template to avoid cross-theme leakage. */ -}}

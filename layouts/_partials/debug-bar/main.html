@@ -1,16 +1,14 @@
-{{- $dict := dict "config" "assets/css/debug-bar/postcss.config.js" }}
-{{- with resources.Get "css/debug-bar/styles.css" }}
-    {{- $styles := . | postCSS $dict }}
-	<link rel="stylesheet" href="{{ $styles.RelPermalink }}">
-{{- end }}
+{{- if hugo.IsDevelopment }}
+  {{- $dict := dict "config" "postcss.config.js" }}
+  {{- with resources.Get "css/debug-bar/styles.css" }}
+    {{- $styles := . | postCSS $dict | minify | fingerprint }}
+    <link rel="stylesheet" href="{{ $styles.RelPermalink }}" integrity="{{ $styles.Data.Integrity }}" crossorigin>
+  {{- end }}
 
-{{- with resources.Get "css/debug-bar/debugprint.css" }}
-  <link rel="stylesheet" href="{{ .RelPermalink }}">
-{{- end }}
-
-{{- with resources.Get "css/fontawesome.css" }}
-  {{- $fa := . | postCSS $dict }}
-  <link rel="stylesheet" href="{{ $fa.RelPermalink }}">
+  {{- with resources.Get "css/debug-bar/debugprint.css" }}
+    {{- $dp := . | minify | fingerprint }}
+    <link rel="stylesheet" href="{{ $dp.RelPermalink }}" integrity="{{ $dp.Data.Integrity }}" crossorigin>
+  {{- end }}
 {{- end }}
 <div class="dbb">
   {{- partial "debug-bar/home-link.html" . -}}
@@ -25,4 +23,6 @@
   {{- partial "debug-bar/btn-close.html" . -}}
 </div>
 
-{{- partial "debug-bar/scripts.html" . -}}
+{{- if hugo.IsDevelopment }}
+  {{- partial "debug-bar/scripts.html" . -}}
+{{- end }}
