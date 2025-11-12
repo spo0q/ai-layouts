@@ -69,6 +69,8 @@ i.dbb-fa {
 }
 
 .dbb-close {
+	display: flex;
+	align-items: center;
 	padding: 0;
 	margin: 0;
 	font-size: calc(var(--dbb-font-size) * 1.25);
