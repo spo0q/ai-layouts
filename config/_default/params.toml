@@ -1,2 +1,4 @@
 [params]
   custom_param = "lol"
+  # Toggle display of the debug bar (useful for demo sites)
+  showDebugBar = true

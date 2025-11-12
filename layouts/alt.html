@@ -322,8 +322,8 @@
     </footer>
   </div>
 
-  {{- /* if hugo.IsDevelopment */}}
+  {{- if .Site.Params.showDebugBar -}}
     {{- partial "debug-bar/main.html" . -}}
-  {{- /* end */ -}}
+  {{- end -}}
 </body>
 </html>
