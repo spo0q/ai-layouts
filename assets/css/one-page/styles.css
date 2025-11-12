@@ -53,10 +53,6 @@ html {
 
 body {
   font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-  color: #222;
-  background: #fafafa;
-  line-height: 1.6;
-  overflow-x: hidden;
   margin: 0;
   padding: 0;
 }
@@ -146,7 +142,11 @@ h1, h2, h3 {
 body {
   font-family: 'Inter', system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
   margin: 0;
+  color: #222;
   background: #fff;
+  font-size: 1rem;
+  line-height: 1.6;
+  overflow-x: hidden;
   position: relative;
 }
 
@@ -167,12 +167,15 @@ h1 {
   font-size: clamp(2rem, 5vw, 3rem);
   line-height: 1.2;
 }
+
 h2 {
   font-size: clamp(1.5rem, 3vw, 2.2rem);
 }
+
 h3, .h3 {
   font-size: clamp(1.1rem, 2vw, 1.4rem);
 }
+
 p, li {
   font-size: clamp(0.95rem, 1.1vw, 1.05rem);
 }
@@ -181,6 +184,7 @@ p, li {
 .site-header h1 {
   font-size: clamp(2.2rem, 6vw, 3.2rem);
 }
+
 .site-header p {
   font-size: clamp(1rem, 1.5vw, 1.2rem);
 }
@@ -380,7 +384,7 @@ figure, img {
 
 .services i {
   color: #ff6a00;
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
 }
 
 .services {
@@ -453,7 +457,6 @@ figure, img {
 
 /* === Portfolio Section === */
 .portfolio {
-  background: #f9f9f9;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: clamp(1rem, 2vw, 1.5rem);

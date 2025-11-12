@@ -5,7 +5,7 @@
 	--dbb-border-color: #282828;
 	--dbb-font-size: 13px;
 	--dbb-icon-size: 24px;
-	--dbb-icon-font-size: 16px;
+	--dbb-icon-font-size: 15px;
 
 	line-height: 1.6;
 	font-size: var(--dbb-font-size);
@@ -36,13 +36,13 @@
 
 .dbb li,
 .dbb p,
-.dbb i.fa {
+i.dbb-fa {
 	font-size: var(--dbb-font-size);
 	margin: 0!important;
 	padding: 0!important;
 }
 
-.dbb i.fa {
+i.dbb-fa {
 	font-size: var(--dbb-icon-font-size);
 }
 

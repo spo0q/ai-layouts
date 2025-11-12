@@ -4,5 +4,5 @@
 <title>{{ if .IsHome }}{{ site.Title }}{{ else }}{{ printf "%s | %s" .Title site.Title }}{{ end }}</title>
 
 {{ partialCached "head/css.html" . }}
-
+<link rel="icon" type="image/png" href="{{ "favicon.ico" | absURL }}">
 <meta name="robots" content="noindex">

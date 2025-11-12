@@ -15,4 +15,6 @@ hugo server
 
 ## Warning
 
-This repository does not aim to teach any good practice.
+This repository may not follow good practices.
+
+For example, the debug bar should not be visible in production.
