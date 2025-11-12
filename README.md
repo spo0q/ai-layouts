@@ -9,6 +9,7 @@ All child themes have dummy content deeply inspired (copy/paste) by the recent [
 ## Commands
 
 ```
+npm i
 hugo server
 ```
 
