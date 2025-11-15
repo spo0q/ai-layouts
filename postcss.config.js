@@ -2,6 +2,7 @@ import { purgeCSSPlugin } from '@fullhuman/postcss-purgecss';
 import autoprefixer from 'autoprefixer';
 import cssnano from 'cssnano';
 import atImport from 'postcss-import';
+import stylelint from 'stylelint';
 
 const purgeOptions = {
   content: ['./layouts/**/*.html', './content/**/*.{md,html}'],
@@ -19,6 +20,7 @@ const purgeOptions = {
 export default {
   plugins: [
     atImport(),
+    stylelint(),
     autoprefixer(),
     purgeCSSPlugin(purgeOptions),
     cssnano({ preset: 'default' })
