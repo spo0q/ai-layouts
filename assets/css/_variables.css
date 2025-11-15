@@ -1,0 +1,77 @@
+:root {
+  --bg-color: lightblue;
+  --text-color: black;
+  --header-text-shadow: #dd8686;
+  --content-bg-color: #121212;
+  --content-text-color: #e1e1e1;
+  --code-bg-color: #e0e0e0;
+  --code-text-color: #121212;
+  --pre-bg-color: #070605;
+  --pre-text-color: #c3c3c3;
+  --pre-border-color: #282828;
+  --primary-color: #4e56c5;
+  --header-bg: linear-gradient(135deg, #4b6cb7, #182848);
+  --header-color: #fff;
+  --gradient-text: linear-gradient(90deg, #ff6a00, #ee0979);
+  --btn-primary-bg: linear-gradient(90deg, #ff6a00, #ee0979);
+  --btn-primary-color: #fff;
+  --btn-secondary-bg: #fff;
+  --btn-secondary-border: #ccc;
+  --btn-secondary-color: #333;
+  --bg-primary: linear-gradient(135deg, #6a11cb, #2575fc);
+  --bg-dark: #111;
+  --bg-dark-color: #eee;
+  --service-box-bg: #fafafa;
+  --service-box-border: #f66a0417;
+  --testimonials-item-bg: #f7f7f7;
+  --metrics-bg: linear-gradient(180deg, #182848, #4b6cb7);
+  --metrics-color: #fff;
+  --metrics-h3-color: #fc0;
+  --portfolio-item-bg: #fff;
+  --contact-bg: linear-gradient(185deg, #e08656, #b43030);
+  --contact-color: #fff;
+  --footer-bg: #111;
+  --footer-color: #bbb;
+  --cookie-banner-bg: #222;
+  --cookie-banner-color: #eee;
+  --cookie-banner-border: #ff6a00;
+  --first-before-border: #f66a04;
+
+  --color-black: #2a1c1c;
+  --color-white: #fefefe;
+  --color-card: #6d6d6d;
+  --color-card-title: #6d6d6d;
+  --color-primary-alt: #4e56c5;
+
+  --bg-header-alt: #bef;
+  --bg-nav-alt: lightyellow;
+  --bg-main-alt: #fff;
+  --bg-card-alt: #f5f6f6;
+  --bg-aside-alt: #ffe9ff;
+  --bg-fancy-alt: lightpink;
+  --bg-footer-alt: #ffff94;
+
+  --radius-small: 5px;
+  --radius-normal: 7px;
+
+  --gutter: 2rem;
+  --padding-section: var(--gutter);
+
+  --border: 2px solid var(--color-black);
+  --border-card: 2px solid var(--color-black);
+
+  --border-width-pixels: 3px;
+  --text-color-pixels: #fafafa;
+  --link-color-pixels: #fafafa;
+  --link-border-color-pixels: #fff;
+  --btn-border-color-pixels: #0fc;
+  --btn-bg-color-pixels: transparent;
+  --btn-text-color-pixels: #0fc;
+  --h1-color-pixels: #0fc;
+  --h2-color-pixels: #0fc;
+  --h3-color-pixels: #fafafa;
+  --section-item-border-color-pixels: #0fc;
+  --section-item-box-shadow-pixels: #0fc5;
+  --section-item-hover-box-shadow-pixels: #0fc;
+  --service-box-border-color-pixels: #fff;
+}
