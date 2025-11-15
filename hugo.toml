@@ -10,3 +10,7 @@ canonifyURLs = true
 [params]
 showDebugBar = true
 custom_param = "lol"
+
+[module]
+  [module.imports]
+  	path = "github.com/spo0q/hugo-debug-bar"

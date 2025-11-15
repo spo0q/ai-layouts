@@ -20,3 +20,4 @@ node_modules/
 
 # Ignore Hugo's cache
 resources/
+_vendor/
