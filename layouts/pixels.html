@@ -7,10 +7,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   {{- partial "head/fonts/preload/start2p.html" . -}}
-  {{- partial "head/fonts/preload/fontawesome.html" . -}}
-  {{- partial "head/css.html" . -}}
 
-  {{- $dict := dict "config" "postcss.config.js" }}
+  {{- /* if hugo.IsDevelopment */}}
+    {{- partial "head/fonts/preload/fontawesome.html" . -}}
+  {{- /* end */}}
+
+  {{- $dict := dict "config" "assets/css/one-page-pixels/postcss.config.js" }}
     {{- with resources.Get "css/one-page-pixels/styles.css" }}
       {{ with resources.ExecuteAsTemplate "css/one-page-pixels/styles.css" $ . }}
       {{- $styles := . | postCSS $dict }}
@@ -204,6 +206,8 @@
     );
   </script>
   
-  {{- partial "debug-bar/main.html" . -}}
+  {{- /* if hugo.IsDevelopment */}}
+    {{- partial "debug-bar/main.html" . -}}
+  {{- /* end */ -}}
 </body>
 </html>
