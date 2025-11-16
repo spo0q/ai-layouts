@@ -2,11 +2,11 @@
   "name": "Layouts",
   "version": "1.0.0",
   "type": "module",
+  "scripts": {
+    "help": "postcss --help"
+  },
   "devDependencies": {
-    "@fullhuman/postcss-purgecss": "^7.0.2",
-    "autoprefixer": "^10.4.14",
-    "cssnano": "^6.0.1",
-    "postcss-import": "^15.0.0"
+    "@fullhuman/postcss-purgecss": "^7.0.2"
   },
   "dependencies": {
     "postcss-cli": "^11.0.1"
