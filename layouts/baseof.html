@@ -17,8 +17,8 @@
 
     <footer class="_footer">&copy; Copyright {{ now.Year }}. All rights reserved.</footer>
     
-    {{- if .Site.Params.showDebugBar -}}
+    {{- /* if hugo.IsDevelopment */}}
       {{- partial "debug-bar/main.html" . -}}
-    {{- end -}}
+    {{- /* end */ -}}
   </body>
 </html>
